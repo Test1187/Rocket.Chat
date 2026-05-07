@@ -22,7 +22,7 @@ jobs:
       - name: Run Revyl workflow
         uses: ./revyl-actions/run-workflow
         with:
-          workflow-id: "9321d594-dff6-4f39-877a-6557756cbfa1"
+          workflow-id: "73871e95-c758-4c19-ae34-a3421a0319f2"
           backend-url: "https://backend-staging.revyl.ai"
           cli-version: "latest"
           no-wait: "false"
