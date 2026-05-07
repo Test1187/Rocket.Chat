@@ -1,0 +1,29 @@
+name: Slack PR Context Test
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/test-slack-pr-context.yml
+
+permissions:
+  contents: read
+
+jobs:
+  run-revyl-workflow:
+    runs-on: ubuntu-latest
+    env:
+      REVYL_API_KEY: ${{ secrets.REVYL_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: RevylAI/revyl-gh-action
+          path: revyl-actions
+      - name: Run Revyl workflow
+        uses: ./revyl-actions/run-workflow
+        with:
+          workflow-id: "9321d594-dff6-4f39-877a-6557756cbfa1"
+          backend-url: "https://backend-staging.revyl.ai"
+          cli-version: "latest"
+          no-wait: "false"
+          timeout: "1800"
